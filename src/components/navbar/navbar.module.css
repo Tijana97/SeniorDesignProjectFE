@@ -2,11 +2,16 @@
   background-color: #009696;
   display: flex;
   flex-direction: row;
-  gap: 8;
+  gap: 8px;
+  align-items: center;
 }
 
 .listWrapper {
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .linkStyleActive {
   text-decoration: none;

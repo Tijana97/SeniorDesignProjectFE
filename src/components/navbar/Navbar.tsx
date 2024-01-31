@@ -5,11 +5,11 @@ import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { appState } from "../../recoil/atom/general";
-//import { JwtPayload, jwtDecode } from "jwt-decode";
+import { JwtPayload, jwtDecode } from "jwt-decode";
 
-/* interface DecodedToken extends JwtPayload {
+interface DecodedToken extends JwtPayload {
   username: string;
-} */
+}
 
 export const currentPageName = () => {
   switch (window.location.pathname) {
@@ -25,10 +25,10 @@ export const currentPageName = () => {
 };
 
 function Navbar() {
-  /*   const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const data: DecodedToken = jwtDecode(token!);
   console.log("TOKEN: ", data);
-  const username = data.username; */
+  const user = data.username;
   const [page, setPage] = useRecoilState(appState);
 
   return (
@@ -83,11 +83,16 @@ function Navbar() {
         </Link>
       </div>
       <div className={styles.listWrapper}>
+        <div className={styles.linkStyleInactive}>{user}</div>
         <Button>
-          <AccountCircleIcon style={{ color: "black" }} />
-        </Button>
-        <Button>
-          <LogoutIcon style={{ color: "black" }} />
+          <LogoutIcon
+            style={{ color: "black" }}
+            onClick={() => {
+              localStorage.removeItem("token");
+              console.log("HERE");
+              window.location.href = "/login";
+            }}
+          />
         </Button>
       </div>
     </div>

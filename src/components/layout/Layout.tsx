@@ -4,13 +4,13 @@ import Navbar, { currentPageName } from "../navbar/Navbar";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { appState } from "../../recoil/atom/general";
+import { ScreenWrapper } from "../screenWrapper/ScreenWrapper";
 
 interface ChildrenNode {
   children: ReactNode;
 }
 
 const Layout: React.FC<ChildrenNode> = ({ children }) => {
-  console.log("I AM HERE");
   const [title, setTitle] = useRecoilState(appState);
 
   useEffect(() => {
@@ -20,14 +20,16 @@ const Layout: React.FC<ChildrenNode> = ({ children }) => {
   return (
     <div className={styles.layoutWrapper}>
       <div className={styles.topnavWrapper}>
+        <div style={{ flex: 1 }}></div>
         <Navbar />
       </div>
-      <div className={styles.mainWrapper}>
-        <div className={styles.contentWrapper}>
-          <div className={styles.titleWrapper}>{title}</div>
-          <div> {children}</div>
+      <ScreenWrapper>
+        <div className={styles.mainWrapper}>
+          <div className={styles.contentWrapper}>
+            <div> {children}</div>
+          </div>
         </div>
-      </div>
+      </ScreenWrapper>
     </div>
   );
 };

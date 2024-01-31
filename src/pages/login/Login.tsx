@@ -32,10 +32,13 @@ const Login: React.FC = (): JSX.Element => {
     } else {
       setEmptyFielderror("");
       try {
-        const response = await axios.post("http://localhost:8080/users/login", {
-          email,
-          password,
-        });
+        const response = await axios.post(
+          "https://fanciful-crisp-5c4db2.netlify.app/users/login",
+          {
+            email,
+            password,
+          }
+        );
 
         console.log("Login successful!", response.data);
 

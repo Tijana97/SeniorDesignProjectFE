@@ -43,6 +43,7 @@ const Register: React.FC = (): JSX.Element => {
     };
 
     validateEmail();
+    handleErrors();
   }, [emailSchema, email]);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ const Register: React.FC = (): JSX.Element => {
       }
     };
     validatePassword();
+    handleErrors();
   }, [password]);
 
   useEffect(() => {
@@ -69,6 +71,7 @@ const Register: React.FC = (): JSX.Element => {
       }
     };
     comparePasswords();
+    handleErrors();
   }, [password, repeatPassword]);
 
   useEffect(() => {
@@ -87,6 +90,7 @@ const Register: React.FC = (): JSX.Element => {
       }
     };
     checkForEmptyFields();
+    handleErrors();
   }, [name, surname, email, password, repeatPassword, username]);
 
   const handleErrors = () => {
@@ -105,7 +109,13 @@ const Register: React.FC = (): JSX.Element => {
 
   const handleRegister = async () => {
     handleErrors();
-    if (presentedError === "") {
+    if (
+      presentedError === "" &&
+      emptyFieldError === "" &&
+      passwordError === "" &&
+      emailError === "" &&
+      repeatPasswordError === ""
+    ) {
       try {
         const response = await axios.post(
           "http://localhost:8080/users/register",
