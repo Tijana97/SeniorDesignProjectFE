@@ -118,7 +118,7 @@ const Register: React.FC = (): JSX.Element => {
     ) {
       try {
         const response = await axios.post(
-          "http://localhost:8080/users/register",
+          "https://seniordesignprojectbe.onrender.com/users/register",
           {
             name,
             surname,
@@ -130,10 +130,13 @@ const Register: React.FC = (): JSX.Element => {
         console.log("Registration successful!", response.data);
         setRegisterError("");
 
-        const login = await axios.post("http://localhost:8080/users/login", {
-          email,
-          password,
-        });
+        const login = await axios.post(
+          "https://seniordesignprojectbe.onrender.com/users/login",
+          {
+            email,
+            password,
+          }
+        );
 
         const token = login.data.token;
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

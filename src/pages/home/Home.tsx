@@ -27,7 +27,10 @@ const Home = () => {
           },
         };
 
-        const response = await axios.get(`http://localhost:8080/posts`, config);
+        const response = await axios.get(
+          `https://seniordesignprojectbe.onrender.com/posts`,
+          config
+        );
 
         setDataList(response.data);
       } catch (error) {
@@ -68,7 +71,10 @@ const Home = () => {
           },
         };
 
-        const response = await axios.get(`http://localhost:8080/posts`, config);
+        const response = await axios.get(
+          `https://seniordesignprojectbe.onrender.com/posts`,
+          config
+        );
 
         setDataList(response.data);
       } catch (error) {
@@ -84,7 +90,7 @@ const Home = () => {
         };
 
         const response = await axios.get(
-          `http://localhost:8080/posts/tags${tagQuery}`,
+          `https://seniordesignprojectbe.onrender.com/posts/tags${tagQuery}`,
           config
         );
 
@@ -101,7 +107,7 @@ const Home = () => {
         };
 
         const response = await axios.get(
-          `http://localhost:8080/posts/search/${search}`,
+          `https://seniordesignprojectbe.onrender.com/posts/search/${search}`,
           config
         );
 
@@ -118,7 +124,7 @@ const Home = () => {
           },
         };
         const response = await axios.get(
-          `http://localhost:8080/posts/filter/${search}${tagQuery}`,
+          `https://seniordesignprojectbe.onrender.com/posts/filter/${search}${tagQuery}`,
           config
         );
         setDataList(response.data);

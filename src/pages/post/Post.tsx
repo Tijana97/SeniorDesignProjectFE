@@ -47,7 +47,7 @@ const Post = () => {
       };
 
       const response = await axios.get(
-        `http://localhost:8080/posts/post/${postId}`,
+        `https://seniordesignprojectbe.onrender.com/posts/post/${postId}`,
         config
       );
 
@@ -75,7 +75,7 @@ const Post = () => {
       };
 
       const response = await axios.get(
-        `http://localhost:8080/comments/${postId}`,
+        `https://seniordesignprojectbe.onrender.com/comments/${postId}`,
         config
       );
       setCommentData(response.data);
@@ -115,7 +115,7 @@ const Post = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:8080/comments/new`,
+        `https://seniordesignprojectbe.onrender.com/comments/new`,
         dataToSend,
         config
       );
@@ -141,7 +141,7 @@ const Post = () => {
       };
 
       const response = await axios.delete(
-        `http://localhost:8080/likes/delete/${postId}/${userId}`,
+        `https://seniordesignprojectbe.onrender.com/likes/delete/${postId}/${userId}`,
         config
       );
 
@@ -170,7 +170,7 @@ const Post = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:8080/likes/new`,
+        `https://seniordesignprojectbe.onrender.com/likes/new`,
         dataToSend,
         config
       );
@@ -198,7 +198,7 @@ const Post = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:8080/inspirations/new`,
+        `https://seniordesignprojectbe.onrender.com/inspirations/new`,
         dataToSend,
         config
       );

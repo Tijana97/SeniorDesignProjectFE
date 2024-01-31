@@ -46,7 +46,7 @@ const Saved = () => {
           },
         };
         const response = await axios.get(
-          `http://localhost:8080/inspirations/${userId}`,
+          `https://seniordesignprojectbe.onrender.com/inspirations/${userId}`,
           config
         );
 
@@ -72,7 +72,7 @@ const Saved = () => {
         },
       };
       await axios.delete(
-        `http://localhost:8080/inspirations/${userId}/${postId}`,
+        `https://seniordesignprojectbe.onrender.com/inspirations/${userId}/${postId}`,
         config
       );
       setDataList((prevDataList) =>

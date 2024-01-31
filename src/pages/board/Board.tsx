@@ -59,7 +59,7 @@ const Board = () => {
           },
         };
         const response = await axios.get(
-          `http://localhost:8080/posts/user/${userId}`,
+          `https://seniordesignprojectbe.onrender.com/posts/user/${userId}`,
           config
         );
 
@@ -106,7 +106,10 @@ const Board = () => {
           Authorization: localStorage.getItem("token"),
         },
       };
-      await axios.delete(`http://localhost:8080/posts/${postId}`, config);
+      await axios.delete(
+        `https://seniordesignprojectbe.onrender.com/posts/${postId}`,
+        config
+      );
       setDataList((prevDataList) =>
         prevDataList.filter((post) => post._id !== postId)
       );
@@ -135,7 +138,7 @@ const Board = () => {
       formData.append("tags", tags.join(",")); // Assuming tags is an array of strings
 
       const response = await axios.post(
-        "http://localhost:8080/profile-upload-single",
+        "https://seniordesignprojectbe.onrender.com/profile-upload-single",
         formData,
         {
           headers: {
